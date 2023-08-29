@@ -5,17 +5,17 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // utils
-import { PORT, BASEURL } from "./constants";
-import { httpResponse } from "./helpers";
-import { connectDB } from "./db";
+import { PORT, BASEURL } from "./api/v1/config/constants";
+import { httpResponse } from "./api/v1/helpers";
+import { connectDB } from "./api/v1/config/db";
 
 // middleware
-import { routeNotFound } from "./middleware/routeNotFound";
-import { errorHandler } from "./middleware/errorHandler";
+import { routeNotFound } from "./api/v1/middleware/routeNotFound";
+import { errorHandler } from "./api/v1/middleware/errorHandler";
 
 // routes
-import { authRouter } from "./routes/authRoutes";
-import { userRouter } from "./routes/userRoutes";
+import { authRouter } from "./api/v1/routes/authRoutes";
+import { userRouter } from "./api/v1/routes/userRoutes";
 
 // Use express app
 const app = express();
