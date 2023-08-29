@@ -1,0 +1,6 @@
+import mongoose from "mongoose";
+
+export const connectDB = (mongoUri: string): Promise<typeof mongoose> => {
+  mongoose.set("strictQuery", false);
+  return mongoose.connect(mongoUri);
+};
