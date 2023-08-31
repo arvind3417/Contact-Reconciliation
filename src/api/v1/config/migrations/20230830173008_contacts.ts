@@ -7,8 +7,8 @@ export async function up(knex: Knex): Promise<void> {
         table.string('phoneNumber');
         table.string('email');
         table.integer('linkedId').unsigned().nullable();
-        table.enum('linkPrecedence', ['secondary', 'primary']).notNullable();        // table.dateTime('createdAt').notNullable().defaultTo(knex.fn.now());
-        // table.dateTime('updatedAt').notNullable().defaultTo(knex.fn.now());
+        table.enum('linkPrecedence', ['secondary', 'primary']).notNullable();
+        // table.enum('linkPrecedence', ['secondary', 'primary']).notNullable().defaultTo('primary');        // table.dateTime('createdAt').notNullable().defaultTo(knex.fn.now());
         table.timestamps(true, true);
         table.dateTime('deletedAt').nullable();
         
