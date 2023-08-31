@@ -52,7 +52,7 @@ dotenv.config();
 
 // import path from "path";
 
-console.log(process.env.DB_URL);
+
 
 // Update with your config settings.
 interface IknexConfig{
@@ -62,7 +62,7 @@ interface IknexConfig{
  const configs: IknexConfig = {
   development: {
     client: 'pg',
-    connection: process.env.DB_URL,
+    // connection: process.env.DB_URL,
     pool: {
       min: 0,
       max: 7,
@@ -76,11 +76,11 @@ interface IknexConfig{
     },
     acquireConnectionTimeout: 60000,
     
-    // connection: {
-    //   database:"test1",
-    //   user:"postgres",
-    //   password:"1234"
-    // },
+    connection: {
+      database:"test1",
+      user:"postgres",
+      password:"1234"
+    },
     searchPath: ['knex', 'public'],
     migrations: {
       directory:'./migrations',
@@ -90,12 +90,12 @@ interface IknexConfig{
 
   testing: {
     client: 'pg',
-    connection: process.env.DB_URL,
-    // connection: {
-    //   database:"test1",
-    //   user:"postgres",
-    //   password:"1234"
-    // },
+    // connection: process.env.DB_URL,
+    connection: {
+      database:"test1",
+      user:"postgres",
+      password:"1234"
+    },
     searchPath: ['knex', 'public'],
     migrations: {
       directory: './migrations',
@@ -107,12 +107,12 @@ interface IknexConfig{
 
   production: {
     client: 'pg',
-    connection: process.env.DB_URL,
-    // connection: {
-    //   database:"test1",
-    //   user:"postgres",
-    //   password:"1234"
-    // },
+    // connection: process.env.DB_URL,
+    connection: {
+      database:"test1",
+      user:"postgres",
+      password:"1234"
+    },
     searchPath: ['knex', 'public'],
     migrations: {
       directory: './migrations',
