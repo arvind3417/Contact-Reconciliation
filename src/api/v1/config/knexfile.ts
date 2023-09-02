@@ -1,22 +1,17 @@
-
 import type { Knex } from "knex";
-import dotenv from 'dotenv'; 
-dotenv.config(); 
-// dotenv.config();
-
-// import path from "path";
+import dotenv from "dotenv";
+dotenv.config();
 
 console.log(process.env.DB_URL);
 
-
 // Update with your config settings.
-interface IknexConfig{
-  [key:string]:Knex.Config
+interface IknexConfig {
+  [key: string]: Knex.Config;
 }
 
- const configs: IknexConfig = {
+const configs: IknexConfig = {
   development: {
-    client: 'pg',
+    client: "pg",
     connection: process.env.DB_URL,
     pool: {
       min: 0,
@@ -30,50 +25,31 @@ interface IknexConfig{
       propagateCreateError: false,
     },
     acquireConnectionTimeout: 60000,
-    
-    // connection: {
-    //   database:"test1",
-    //   user:"postgres",
-    //   password:"1234"
-    // },
-    searchPath: ['knex', 'public'],
+    searchPath: ["knex", "public"],
     migrations: {
-      directory:'./migrations',
+      directory: "./migrations",
     },
-    seeds: { directory: './seeds' },
+    seeds: { directory: "./seeds" },
   },
 
   testing: {
-    client: 'pg',
+    client: "pg",
     connection: process.env.DB_URL,
-    // connection: {
-    //   database:"test1",
-    //   user:"postgres",
-    //   password:"1234"
-    // },
-    searchPath: ['knex', 'public'],
+    searchPath: ["knex", "public"],
     migrations: {
-      directory: './migrations',
-
-      // directory: './migrations',
+      directory: "./migrations",
     },
-    seeds: { directory: './seeds' },
+    seeds: { directory: "./seeds" },
   },
 
   production: {
-    client: 'pg',
+    client: "pg",
     connection: process.env.DB_URL,
-    // connection: {
-    //   database:"test1",
-    //   user:"postgres",
-    //   password:"1234"
-    // },
-    searchPath: ['knex', 'public'],
+    searchPath: ["knex", "public"],
     migrations: {
-      directory: './migrations',
+      directory: "./migrations",
     },
-    seeds: { directory:'./seeds'},
+    seeds: { directory: "./seeds" },
   },
-
 };
-export default configs
+export default configs;
