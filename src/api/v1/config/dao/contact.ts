@@ -1,14 +1,14 @@
 
-import db from "../knex-db";
+import db from "../db";
 
 interface Contact {
-    phoneNumber?: string;
+    phone_number?: string;
     email?: string;
-    linkedId?: number | null;
-    linkPrecedence: 'secondary' | 'primary';
+    linked_id?: number | null;
+    link_precedence: 'secondary' | 'primary';
     createdAt?: Date;
     updatedAt?: Date;
-    deletedAt?: Date | null;
+    deleted_at?: Date | null;
   }
   
   export default Contact;
@@ -24,8 +24,8 @@ async function createContact( data) {
 }
 async function updateContact(data){
   const query = db('Contact').where('id', data.id).update({
-    linkedId: data.linkedId,
-    linkPrecedence:data.linkPrecedence,
+    linked_id: data.linked_id,
+    link_precedence:data.link_precedence,
     updated_at: new Date()
   }
   ).returning('*');

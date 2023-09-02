@@ -1,57 +1,12 @@
-// import type { Knex } from "knex";
 
-// // Update with your config settings.
-
-// const config: { [key: string]: Knex.Config } = {
-//   development: {
-//     client: "sqlite3",
-//     connection: {
-//       filename: "./dev.sqlite3"
-//     }
-//   },
-
-//   staging: {
-//     client: "postgresql",
-//     connection: {
-//       database: "my_db",
-//       user: "username",
-//       password: "password"
-//     },
-//     pool: {
-//       min: 2,
-//       max: 10
-//     },
-//     migrations: {
-//       tableName: "knex_migrations"
-//     }
-//   },
-
-//   production: {
-//     client: "postgresql",
-//     connection: {
-//       database: "my_db",
-//       user: "username",
-//       password: "password"
-//     },
-//     pool: {
-//       min: 2,
-//       max: 10
-//     },
-//     migrations: {
-//       tableName: "knex_migrations"
-//     }
-//   }
-
-// };
-
-// module.exports = config;
 import type { Knex } from "knex";
 import dotenv from 'dotenv'; 
-dotenv.config();
+dotenv.config(); 
 // dotenv.config();
 
 // import path from "path";
 
+console.log(process.env.DB_URL);
 
 
 // Update with your config settings.
@@ -62,7 +17,7 @@ interface IknexConfig{
  const configs: IknexConfig = {
   development: {
     client: 'pg',
-    // connection: process.env.DB_URL,
+    connection: process.env.DB_URL,
     pool: {
       min: 0,
       max: 7,
@@ -76,11 +31,11 @@ interface IknexConfig{
     },
     acquireConnectionTimeout: 60000,
     
-    connection: {
-      database:"test1",
-      user:"postgres",
-      password:"1234"
-    },
+    // connection: {
+    //   database:"test1",
+    //   user:"postgres",
+    //   password:"1234"
+    // },
     searchPath: ['knex', 'public'],
     migrations: {
       directory:'./migrations',
@@ -90,12 +45,12 @@ interface IknexConfig{
 
   testing: {
     client: 'pg',
-    // connection: process.env.DB_URL,
-    connection: {
-      database:"test1",
-      user:"postgres",
-      password:"1234"
-    },
+    connection: process.env.DB_URL,
+    // connection: {
+    //   database:"test1",
+    //   user:"postgres",
+    //   password:"1234"
+    // },
     searchPath: ['knex', 'public'],
     migrations: {
       directory: './migrations',
@@ -107,12 +62,12 @@ interface IknexConfig{
 
   production: {
     client: 'pg',
-    // connection: process.env.DB_URL,
-    connection: {
-      database:"test1",
-      user:"postgres",
-      password:"1234"
-    },
+    connection: process.env.DB_URL,
+    // connection: {
+    //   database:"test1",
+    //   user:"postgres",
+    //   password:"1234"
+    // },
     searchPath: ['knex', 'public'],
     migrations: {
       directory: './migrations',

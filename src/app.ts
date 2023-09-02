@@ -5,9 +5,8 @@ import dotenv from "dotenv";
 dotenv.config();
 
 // utils
-import { PORT, BASEURL } from "./api/v1/config/constants";
+import { PORT, BASEURLV1 } from "./api/v1/config/constants";
 import { httpResponse } from "./api/v1/helpers";
-import { connectDB } from "./api/v1/config/db/index";
 
 // middleware
 import { routeNotFound } from "./api/v1/middleware/routeNotFound";
@@ -27,7 +26,7 @@ app.use(cors());
 
 // Routes
 
-app.use(`${BASEURL}/contact`, contactRouter);
+app.use(`${BASEURLV1}/contact`, contactRouter);
 
 // Ping route
 app.get("/", (_req: Request, _res: Response) =>
