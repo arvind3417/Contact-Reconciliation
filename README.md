@@ -25,6 +25,12 @@ Enter the below command to run in dev
 npm run dev
 ```
 
+### Documentation
+The following documentation is based on the examples in the task (i.e. existed state of Database)
+```bash
+https://documenter.getpostman.com/view/21199515/2s9Y5cuLm1
+```
+
 ### Acheivements
 Dr. Emmett Brown (Doc) requirements were met!!!
 
