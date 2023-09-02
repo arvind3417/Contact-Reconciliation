@@ -138,11 +138,11 @@ export const handleContactCreation = asyncWrapper(
       const rootid = await root_rescursive(contactid);
       console.log(rootid);
 
-      const childs = await child_recursive(rootid);
+      const contact = await child_recursive(rootid);
 
-      _res.status(StatusCodes.CREATED).json(
-        httpResponse(true, "Journal Created successfully", {
-          childs,
+      _res.status(StatusCodes.OK).json(
+        httpResponse(true, "Identified Contacts", {
+          contact,
         })
       );
     } catch (error: any) {
